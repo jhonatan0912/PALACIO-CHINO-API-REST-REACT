@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Notes client
-client\notesClient.md
+./client/notesClient.md
