@@ -47,8 +47,8 @@ export const updateProduct = async (req, res) => {
   const { id } = req.params;
   const { name, image, price } = req.body;
   try {
-    console.log(id, image, price);
-    const [result] = await pool.query('UPDATE products SET name = IFNULL(?name),image = IFNULL(?image),price = IFNULL(?price) WHERE id=?'[id]);
+    const [result] = await pool.query('UPDATE products SET name = IFNULL(?,name),image = IFNULL(?,image),price = IFNULL(?,price) WHERE id = ?', [name, image, price, id]);
+    console.log(result);
     if (result.affectedRows === 0) {
       return res.status(404).json({
         message: "Product not found"

@@ -1,22 +1,53 @@
 import React from 'react'
 import { Form, Formik } from "formik";
 import { useProduct } from "./../context/ProductProvider";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 function ProductForm() {
-  const { createProduct } = useProduct();
+  const { createProduct, getProduct, updateProduct } = useProduct();
+  const [product, setproduct] = useState({
+    name: "",
+    image: "",
+    price: "",
+  })
+  const params = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadProduct = async () => {
+      if (params.id) {
+        const product = await getProduct(params.id)
+        setproduct({
+          name: product.name,
+          image: product.image,
+          price: product.price,
+        })
+      }
+    }
+    loadProduct()
+  }, [])
+
   return (
     <div>
-      <div>Product Form</div>
+      <h1>{params.id ? "Edit product" : "Create product"}</h1>
       <Formik
-        initialValues={{
-          name: '',
-          image: '',
-          price: '',
-        }}
+        initialValues={product}
+        enableReinitialize={true}
         onSubmit={async (values, actions) => {
-          console.log(values);
-          createProduct(values);
-          actions.resetForm();
+          // console.log(values);
+          if (params.id) {
+            await updateProduct(params.id, values)
+            navigate("/");
+          } else {
+            await createProduct(values);
+          }
+          // actions.resetForm();
+          setproduct({
+            name: "",
+            image: "",
+            price: "",
+          })
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -36,7 +67,7 @@ function ProductForm() {
           </Form>
         )}
       </Formik>
-    </div>
+    </div >
   );
 }
 

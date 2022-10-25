@@ -1,9 +1,10 @@
 import React from 'react'
 import { useProduct } from "../context/ProductProvider";
+import { useNavigate } from "react-router-dom";
 
 function ProductCard({ product }) {
   const { deleteProduct } = useProduct()
-
+  const navigate = useNavigate()
 
   return (
     <div >
@@ -11,7 +12,7 @@ function ProductCard({ product }) {
       <img loading='lazy' src={product.image} alt={product.name} />
       <p>{product.price}</p>
       <div className="button-container">
-        <button>
+        <button onClick={() => navigate(`/edit/${product.id}`)} >
           Edit
         </button>
         <button onClick={() => deleteProduct(product.id)}>
