@@ -16,3 +16,12 @@ npm i formik
 
 ## Install Axios to connect with API-REST
 npm i axios
+
+## Install tailwind
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+"./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
