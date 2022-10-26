@@ -29,8 +29,8 @@ function ProductForm() {
   }, [])
 
   return (
-    <div>
-      <h1>{params.id ? "Edit product" : "Create product"}</h1>
+    <div className='flex flex-col justify-center items-center'>
+      <h1 className='font-bold lg:text-3xl p-5' > {params.id ? "Editar product" : "Crear producto"}</h1 >
       <Formik
         initialValues={product}
         enableReinitialize={true}
@@ -49,17 +49,31 @@ function ProductForm() {
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
-            <label>
-              Name <input type="text" name="name" placeholder='Enter a name' onChange={handleChange} value={values.name} />
+          <Form
+            onSubmit={handleSubmit}
+            className="flex flex-col border border-black p-10 rounded"
+          >
+            <label className='flex flex-col'>
+              Name
+              <input
+                className='bg-zinc-300 py-1 rounded'
+                type="text" name="name" onChange={handleChange} value={values.name} />
             </label>
-            <label>
-              Image<input type="text" name="image" placeholder='Enter a image URL' onChange={handleChange} value={values.image} />
+            <label className='flex flex-col'>
+              Image URL
+              <input
+                className='bg-zinc-300 py-1 rounded'
+                type="text" name="image" onChange={handleChange} value={values.image} />
             </label>
-            <label>
-              Price<input type="text" name="price" placeholder='Enter a price' onChange={handleChange} value={values.price} />
+            <label className='flex flex-col'>
+              Price
+              <input
+                className='bg-zinc-300 py-1 rounded'
+                type="text" name="price" onChange={handleChange} value={values.price} />
             </label>
-            <button type='submit' disabled={isSubmitting}>
+            <button
+              className='p-2 rounded hover:scale-105 bg-green-600 mt-5 text-white'
+              type='submit' disabled={isSubmitting}>
               {isSubmitting ? "Saving..." : "Save"}
             </button>
           </Form>
