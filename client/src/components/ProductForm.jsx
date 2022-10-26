@@ -56,19 +56,19 @@ function ProductForm() {
             <label className='flex flex-col'>
               Name
               <input
-                className='bg-zinc-300 py-1 rounded'
+                className='bg-zinc-300 py-1 rounded outline-none'
                 type="text" name="name" onChange={handleChange} value={values.name} />
             </label>
             <label className='flex flex-col'>
               Image URL
               <input
-                className='bg-zinc-300 py-1 rounded'
+                className='bg-zinc-300 py-1 rounded outline-none'
                 type="text" name="image" onChange={handleChange} value={values.image} />
             </label>
             <label className='flex flex-col'>
               Price
               <input
-                className='bg-zinc-300 py-1 rounded'
+                className='bg-zinc-300 py-1 rounded outline-none'
                 type="text" name="price" onChange={handleChange} value={values.price} />
             </label>
             <button
