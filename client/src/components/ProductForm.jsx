@@ -35,14 +35,12 @@ function ProductForm() {
         initialValues={product}
         enableReinitialize={true}
         onSubmit={async (values, actions) => {
-          // console.log(values);
           if (params.id) {
             await updateProduct(params.id, values)
             navigate("/");
           } else {
             await createProduct(values);
           }
-          // actions.resetForm();
           setproduct({
             name: "",
             image: "",

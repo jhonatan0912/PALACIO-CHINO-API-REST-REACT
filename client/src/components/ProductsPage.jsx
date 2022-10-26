@@ -8,7 +8,7 @@ function ProductsPage() {
   const { products, loadProducts } = useProduct()
 
   useEffect(() => {
-    loadProducts()
+    loadProducts();
   }, []);
 
   function renderMain() {
@@ -22,8 +22,10 @@ function ProductsPage() {
 
   return (
     <div>
-      <h1>Products</h1>
-      {renderMain()}
+      <h1 className='text-2xl text-center font-bold underline pt-5'>Productos</h1>
+      <div className='grid grid-cols-1 justify-center w-6/6 sm:w-4/6 md:grid-cols-2 md:w-5/6 lg:grid-cols-3 xl:w-11/12 xl:grid-cols-4  m-auto text-center'>
+        {renderMain()}
+      </div>
     </div>
   );
 
