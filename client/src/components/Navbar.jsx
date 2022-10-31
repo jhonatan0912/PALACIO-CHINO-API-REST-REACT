@@ -10,16 +10,19 @@ function Navbar() {
     <div className='bg-zinc-800 text-white'>
       <h1 className='text-3xl text-center pt-4'>Palacio Chino Premium</h1>
       <ul className='flex flex-col lg:flex-row lg:justify-between'>
-        <div className='flex'>
-          <li className='w-full lg:w-40 text-center p-2 hover:font-bold text-xl'>
-            <Link to={'/'}>Home</Link>
-          </li>
-          <li className='w-full lg:w-40 text-center p-2 hover:font-bold text-xl'>
-            <Link to={'/new'}>Add product</Link>
-          </li>
-        </div>
+        {
+          isAuthenticated &&
+          <div className='flex'>
+            <li className='w-full lg:w-40 text-center p-2 hover:font-bold text-xl'>
+              <Link to={'/'}>Home</Link>
+            </li>
+            <li className='w-full lg:w-40 text-center p-2 hover:font-bold text-xl'>
+              <Link to={'/new'}>Add product</Link>
+            </li>
+          </div>
+        }
         <li className='lg:flex items-center gap-3 lg:pr-3 text-center'>
-          {isAuthenticated && (<p>Bienvenido {user.name}</p>)}
+          {isAuthenticated && <p>Bienvenido {user.name}</p>}
           {
             isAuthenticated ? <ButtonLogOut /> : <ButtonLogin />
           }
