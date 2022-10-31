@@ -24,7 +24,7 @@ function Navbar() {
         <li className='lg:flex items-center gap-3 lg:pr-3 text-center'>
           {isAuthenticated &&
             <>
-              <img src={user.picture} style={{ "width": "30px", "borderRadius": "50%" }} />
+              <img src={user.picture} style={{ "width": "30px", "borderRadius": "50%", "margin": "auto" }} />
               <p>{user.name}</p>
             </>}
           {

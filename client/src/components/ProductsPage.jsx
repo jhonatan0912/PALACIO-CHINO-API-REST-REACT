@@ -31,7 +31,7 @@ function ProductsPage() {
               {renderMain()}
             </div>
           </>
-          : <h1 className='text-center lg:text-3xl text-red-600 pt-10 font-bold'>Login to management</h1>
+          : <h1 className='text-center text-3xl text-red-600 pt-10 font-bold'>Login to management</h1>
       }
 
     </div>
