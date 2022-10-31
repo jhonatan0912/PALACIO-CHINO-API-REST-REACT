@@ -25,3 +25,6 @@ npx tailwindcss init -p
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+## Install Auth0
+npm install @auth0/auth0-react
