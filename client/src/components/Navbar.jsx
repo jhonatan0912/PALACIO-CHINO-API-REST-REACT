@@ -22,7 +22,11 @@ function Navbar() {
           </div>
         }
         <li className='lg:flex items-center gap-3 lg:pr-3 text-center'>
-          {isAuthenticated && <p>Bienvenido {user.name}</p>}
+          {isAuthenticated &&
+            <>
+              <img src={user.picture} style={{ "width": "30px", "borderRadius": "50%" }} />
+              <p>{user.name}</p>
+            </>}
           {
             isAuthenticated ? <ButtonLogOut /> : <ButtonLogin />
           }
