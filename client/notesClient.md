@@ -28,3 +28,5 @@ npx tailwindcss init -p
 
 ## Install Auth0
 npm install @auth0/auth0-react
+
+run auth0 on http://localhost:5173/
