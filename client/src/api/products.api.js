@@ -5,7 +5,7 @@ export const createProductRequest = async (product) => {
 }
 
 export const getProductsRequest = async () => {
-  return await axios.get('https://palacio-chino-back-production.up.railway.app/')
+  return await axios.get('https://palacio-chino-back-production.up.railway.app/api/products')
 }
 
 export const getProductRequest = async (id) => {
